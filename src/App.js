@@ -125,14 +125,15 @@ class Sudoku {
         if (this.grid[i][j] === " ") {
           for (let val = 1; val < 10; val++) {
             //Checks with every possible value.
+            let strVal = val.toString()
             if (
               !(
-                this.rowCheck(val, i) ||
-                this.colCheck(val, j) ||
-                this.subgrid(val, i, j)
+                this.rowCheck(strVal, i) ||
+                this.colCheck(strVal, j) ||
+                this.subgrid(strVal, i, j)
               )
             ) {
-              this.grid[i][j] = val;
+              this.grid[i][j] = strVal;
               if (this.solver()) {
                 return true;
               }
